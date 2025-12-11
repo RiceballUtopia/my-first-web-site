@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>たい焼きチェーン比較ナビ</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=M+PLUS+1p:wght@500;700&display=swap");
 
     :root {
-      --bg: radial-gradient(circle at 20% 20%, #ffecd2 0, #fcb69f 25%, transparent 45%),
-        radial-gradient(circle at 80% 0%, #d9efff 0, #9bd0ff 30%, transparent 55%),
-        #0f172a;
-      --card: rgba(255, 255, 255, 0.94);
-      --accent: #f97316;
-      --accent-2: #2563eb;
-      --accent-3: #14b8a6;
-      --text: #0f172a;
+      --bg-base: #fdf8f1;
+      --paper: rgba(255, 252, 247, 0.9);
+      --accent: #b91c1c;
+      --accent-2: #8a4b12;
+      --accent-3: #0f766e;
+      --text: #1f1a16;
+      --stroke: #e7d9c7;
+      --shadow: 0 18px 36px rgba(44, 38, 24, 0.12);
     }
 
     * {
@@ -23,12 +23,25 @@
     }
 
     body {
-      font-family: "M PLUS 1p", "Hiragino Sans", "Yu Gothic", sans-serif;
-      background: var(--bg);
+      font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+      background: var(--bg-base);
       color: var(--text);
       margin: 0;
       min-height: 100vh;
       padding: 0 1rem 4rem;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(253, 248, 241, 0.92), rgba(250, 243, 233, 0.85)),
+        url("和風.webp") center / cover no-repeat;
+      z-index: -1;
+      filter: saturate(0.9);
+      pointer-events: none;
     }
 
     .wrap {
@@ -44,9 +57,10 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5vw, 3.25rem);
-      letter-spacing: 0.04em;
+      font-size: clamp(2.6rem, 5vw, 3.4rem);
+      letter-spacing: 0.1em;
       margin: 0;
+      text-shadow: 0 8px 22px rgba(44, 38, 24, 0.16);
     }
 
     .lead {
@@ -54,7 +68,7 @@
       line-height: 1.7;
       margin: 0 auto;
       max-width: 720px;
-      color: #1f2937;
+      color: #3c3126;
     }
 
     .hero-tag {
@@ -64,9 +78,9 @@
       margin: 0 auto;
       padding: 0.5rem 1rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      color: #1f2937;
+      background: linear-gradient(120deg, rgba(185, 28, 28, 0.18), rgba(138, 75, 18, 0.18));
+      border: 1px solid rgba(231, 217, 199, 0.8);
+      color: #2c2218;
       font-weight: 700;
     }
 
@@ -76,7 +90,19 @@
       height: 12px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       border-radius: 50%;
-      box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.12);
+      box-shadow: 0 0 0 6px rgba(185, 28, 28, 0.12);
+    }
+
+    .hero-tag,
+    .badge,
+    .meta,
+    table,
+    th,
+    td,
+    .legend-item,
+    .button,
+    .pin span {
+      font-family: "M PLUS 1p", "Hiragino Sans", "Yu Gothic", sans-serif;
     }
 
     .grid {
@@ -87,11 +113,11 @@
     }
 
     .card {
-      background: var(--card);
+      background: var(--paper);
       border-radius: 18px;
       padding: 1.5rem;
-      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.18);
-      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
       position: relative;
       overflow: hidden;
     }
@@ -101,7 +127,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(circle at 80% 0%, rgba(37, 99, 235, 0.12), transparent 45%);
+      background: radial-gradient(circle at 80% 0%, rgba(185, 28, 28, 0.12), transparent 45%);
     }
 
     .card h2 {
@@ -113,8 +139,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      background: rgba(249, 115, 22, 0.1);
-      color: #b45309;
+      background: rgba(185, 28, 28, 0.08);
+      color: #8a1a1a;
       border-radius: 12px;
       padding: 0.2rem 0.65rem;
       font-weight: 700;
@@ -127,32 +153,32 @@
       gap: 0.6rem;
       flex-wrap: wrap;
       font-size: 0.95rem;
-      color: #334155;
+      color: #4a3b2c;
     }
 
     .meta span {
       padding: 0.4rem 0.75rem;
-      background: rgba(15, 23, 42, 0.05);
+      background: rgba(74, 59, 44, 0.06);
       border-radius: 999px;
     }
 
     .desc {
-      color: #334155;
+      color: #4a3b2c;
       line-height: 1.6;
       margin: 0.5rem 0 0;
     }
 
     .table {
       margin-top: 2.5rem;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 252, 247, 0.96);
       border-radius: 16px;
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--stroke);
       overflow: hidden;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 12px 32px rgba(44, 38, 24, 0.1);
     }
 
     .table header {
-      background: linear-gradient(120deg, rgba(37, 99, 235, 0.15), rgba(249, 115, 22, 0.15));
+      background: linear-gradient(120deg, rgba(185, 28, 28, 0.12), rgba(15, 118, 110, 0.12));
       padding: 1.1rem 1.25rem;
       text-align: left;
     }
@@ -175,12 +201,12 @@
     }
 
     th {
-      color: #0f172a;
-      background: rgba(15, 23, 42, 0.04);
+      color: #2c2218;
+      background: rgba(44, 34, 24, 0.04);
     }
 
     tr:nth-child(even) td {
-      background: rgba(15, 23, 42, 0.02);
+      background: rgba(44, 34, 24, 0.02);
     }
 
     .cta {
@@ -190,10 +216,10 @@
 
     .map {
       margin-top: 2.5rem;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 252, 247, 0.92);
       border-radius: 18px;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 14px 28px rgba(44, 38, 24, 0.12);
       padding: 1.5rem;
       display: grid;
       gap: 1rem;
@@ -223,7 +249,7 @@
       align-items: center;
       gap: 0.4rem;
       font-weight: 700;
-      color: #0f172a;
+      color: #2c2218;
     }
 
     .legend .dot {
@@ -248,15 +274,17 @@
       position: relative;
       height: 460px;
       border-radius: 16px;
-      background: #f8fafc url("日本地図.png") center center / contain no-repeat;
+      background: #fefbf6 url("日本地図.png") center center / contain no-repeat;
       overflow: hidden;
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
     }
 
     .map-plot::after {
       content: "";
       position: absolute;
       inset: 8%;
-      border: 1px dashed rgba(15, 23, 42, 0.14);
+      border: 1px dashed rgba(44, 34, 24, 0.14);
       border-radius: 14px;
       pointer-events: none;
     }
@@ -266,8 +294,8 @@
       transform: translate(-50%, -50%);
       font-size: 0.8rem;
       font-weight: 700;
-      color: #0f172a;
-      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
+      color: #2c2416;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95);
       white-space: nowrap;
     }
 
@@ -279,7 +307,7 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.9);
     }
 
     .pin-a::before {
@@ -296,9 +324,9 @@
       display: inline-block;
       margin-left: 0.6rem;
       padding: 0.15rem 0.5rem;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 252, 247, 0.92);
       border-radius: 10px;
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(44, 34, 24, 0.08);
     }
 
     .button {
@@ -311,13 +339,15 @@
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.25);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 16px 36px rgba(138, 75, 18, 0.25);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
     .button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 20px 40px rgba(138, 75, 18, 0.3);
+      filter: saturate(1.05);
     }
 
     @media (max-width: 640px) {
@@ -361,7 +391,7 @@
           <span>価格帯：220〜260円</span>
         </div>
         <p class="desc">
-          名物のお好み焼き鯛焼きは老若男女に人気！もっちり厚めな生地にお腹も心も温まる
+          名物のお好み焼き鯛焼きは老若男女に人気。もっちり厚めな生地に包まれた惣菜系たい焼きが、小腹も心も満たしてくれる。
         </p>
       </article>
 

@@ -3,61 +3,317 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>自分のWebページ</title>
+  <title>たい焼きチェーン比較ナビ</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700&display=swap");
+
+    :root {
+      --bg: radial-gradient(circle at 20% 20%, #ffecd2 0, #fcb69f 25%, transparent 45%),
+        radial-gradient(circle at 80% 0%, #d9efff 0, #9bd0ff 30%, transparent 55%),
+        #0f172a;
+      --card: rgba(255, 255, 255, 0.94);
+      --accent: #f97316;
+      --accent-2: #2563eb;
+      --text: #0f172a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Yu Gothic", "Hiragino Kaku Gothic Pro", sans-serif;
-      background: #eef2f7;
-      color: #1f2a37;
+      font-family: "M PLUS 1p", "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 0 1rem 4rem;
     }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 2rem;
-      max-width: 480px;
-      box-shadow: 0 24px 60px rgba(31, 42, 55, 0.15);
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 3rem 0 2rem;
+      display: grid;
+      gap: 1rem;
       text-align: center;
     }
+
     h1 {
-      margin-bottom: 0.5rem;
-      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
+      letter-spacing: 0.04em;
+      margin: 0;
     }
-    p {
-      line-height: 1.6;
-      color: #3f4c63;
+
+    .lead {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 0 auto;
+      max-width: 720px;
+      color: #1f2937;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.75rem;
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
       border-radius: 999px;
-      background: #0c8bff;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      color: #1f2937;
+      font-weight: 700;
+    }
+
+    .hero-tag span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.12);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 80% 0%, rgba(37, 99, 235, 0.12), transparent 45%);
+    }
+
+    .card h2 {
+      margin: 0 0 0.25rem;
+      font-size: 1.4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(249, 115, 22, 0.1);
+      color: #b45309;
+      border-radius: 12px;
+      padding: 0.2rem 0.65rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .meta {
+      margin: 0.75rem 0 0.5rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .meta span {
+      padding: 0.4rem 0.75rem;
+      background: rgba(15, 23, 42, 0.05);
+      border-radius: 999px;
+    }
+
+    .desc {
+      color: #334155;
+      line-height: 1.6;
+      margin: 0.5rem 0 0;
+    }
+
+    .table {
+      margin-top: 2.5rem;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 16px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    .table header {
+      background: linear-gradient(120deg, rgba(37, 99, 235, 0.15), rgba(249, 115, 22, 0.15));
+      padding: 1.1rem 1.25rem;
+      text-align: left;
+    }
+
+    .table h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.97rem;
+    }
+
+    th,
+    td {
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+    }
+
+    th {
+      color: #0f172a;
+      background: rgba(15, 23, 42, 0.04);
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(15, 23, 42, 0.02);
+    }
+
+    .cta {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.65rem;
+      border-radius: 12px;
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
       color: #fff;
       text-decoration: none;
-      font-weight: 600;
-      transition: background 0.2s ease;
+      font-weight: 700;
+      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.25);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
-    a.button:hover {
-      background: #0665c2;
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 2.5rem 0 1.25rem;
+      }
     }
   </style>
 </head>
 <body>
-  <section class="card">
-    <h1>ようこそ</h1>
-    <p>
-      ここは自分のWebサイトです。GitHub Pagesを使って公開している
-      シンプルな紹介ページです。今後ここにプロジェクトや日々の
-      気づきを書いていく予定です。
-    </p>
-    <a class="button" href="https://github.com/" target="_blank" rel="noopener">
-      GitHub を見る
-    </a>
-  </section>
+  <div class="wrap">
+    <header id="top">
+      <div class="hero-tag"><span></span>たい焼き好きのための比較ガイド</div>
+      <h1>たい焼きチェーン三社 比較</h1>
+      <p class="lead">
+        駅前や商店街で見かける有名チェーン3社の「皮」「餡」「焼き方」「価格感」をぎゅっと比較。
+        その日の気分に合う一枚を見つけてみませんか？
+      </p>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="badge">定番を押さえるなら</div>
+        <h2>銀のあん</h2>
+        <div class="meta">
+          <span>皮：サクふわ二度焼き</span>
+          <span>餡：北海道小豆 たっぷり</span>
+          <span>価格帯：200〜240円</span>
+        </div>
+        <p class="desc">
+          香ばしく仕上げる二度焼きが看板。粒あんの存在感が強く、外カリ中もちのコントラストが好きな人におすすめ。
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="badge">餡のコクで選ぶ</div>
+        <h2>鳴門鯛焼本舗</h2>
+        <div class="meta">
+          <span>皮：薄めでパリッと</span>
+          <span>餡：鳴門金時いも／自家炊き小豆</span>
+          <span>価格帯：230〜260円</span>
+        </div>
+        <p class="desc">
+          いも餡が有名。さつまいもの甘みと香りがしっかり感じられ、甘さ控えめ派でも食べやすい仕立て。
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="badge">季節限定が楽しい</div>
+        <h2>横浜くりこ庵</h2>
+        <div class="meta">
+          <span>皮：ふっくら厚めで香ばしい</span>
+          <span>餡：自家炊き粒あん／限定餡が豊富</span>
+          <span>価格帯：190〜240円</span>
+        </div>
+        <p class="desc">
+          あんこに加え、紫いもや栗など季節の餡が次々登場。ふっくらした皮でボリュームがあり、食べ比べが楽しい。
+        </p>
+      </article>
+    </section>
+
+    <section class="table">
+      <header><h3>ひと目でわかる違い</h3></header>
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>銀のあん</th>
+            <th>鳴門鯛焼本舗</th>
+            <th>横浜くりこ庵</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>食感</td>
+            <td>厚めの外カリ中ふわ</td>
+            <td>薄皮パリ＋しっとり餡</td>
+            <td>ふっくら厚めでやわらか</td>
+          </tr>
+          <tr>
+            <td>看板餡</td>
+            <td>北海道小豆 粒あん</td>
+            <td>鳴門金時いも／自家炊き</td>
+            <td>自家炊き粒あん＋季節餡</td>
+          </tr>
+          <tr>
+            <td>焼き方</td>
+            <td>二度焼きで香ばしさUP</td>
+            <td>一丁焼き風の直火</td>
+            <td>厚め生地を鉄板でふっくら</td>
+          </tr>
+          <tr>
+            <td>ボリューム</td>
+            <td>しっかり大きめ</td>
+            <td>ずっしり餡多め</td>
+            <td>一つで満足感のある量</td>
+          </tr>
+          <tr>
+            <td>おすすめシーン</td>
+            <td>ゆっくり味わうご褒美</td>
+            <td>おみやげ・シェア向き</td>
+            <td>季節限定を追いかけたい時</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="cta">
+      <a class="button" href="#top">近くの店舗で食べ比べてみる</a>
+    </div>
+  </div>
 </body>
 </html>

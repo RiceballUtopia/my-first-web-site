@@ -14,6 +14,7 @@
       --card: rgba(255, 255, 255, 0.94);
       --accent: #f97316;
       --accent-2: #2563eb;
+      --accent-3: #14b8a6;
       --text: #0f172a;
     }
 
@@ -187,6 +188,121 @@
       text-align: center;
     }
 
+    .map {
+      margin-top: 2.5rem;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 18px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .map h3 {
+      margin: 0;
+      font-size: 1.15rem;
+    }
+
+    .map p {
+      margin: 0.35rem 0 0;
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      align-items: center;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .legend .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(15, 23, 42, 0.06);
+      display: inline-block;
+    }
+
+    .dot-a {
+      background: var(--accent);
+    }
+    .dot-b {
+      background: var(--accent-2);
+    }
+    .dot-c {
+      background: var(--accent-3);
+    }
+
+    .map-plot {
+      position: relative;
+      height: 420px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 65% 20%, rgba(37, 99, 235, 0.12), transparent 45%),
+        radial-gradient(circle at 25% 60%, rgba(249, 115, 22, 0.12), transparent 40%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.06), rgba(15, 23, 42, 0.02));
+      overflow: hidden;
+    }
+
+    .map-plot::after {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px dashed rgba(15, 23, 42, 0.14);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
+      white-space: nowrap;
+    }
+
+    .pin::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    .pin-a::before {
+      background: var(--accent);
+    }
+    .pin-b::before {
+      background: var(--accent-2);
+    }
+    .pin-c::before {
+      background: var(--accent-3);
+    }
+
+    .pin span {
+      display: inline-block;
+      margin-left: 0.6rem;
+      padding: 0.15rem 0.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -243,11 +359,11 @@
         <h2>おめで鯛焼き本舗</h2>
         <div class="meta">
           <span>皮：もっちり厚め</span>
-          <span>餡：つぶあん／お好み焼き味など</span>
+          <span>餡：つぶあん／カスタード／お好み焼き味</span>
           <span>価格帯：220〜260円</span>
         </div>
         <p class="desc">
-          甘い餡に加え、お好み焼き味など変わり種が豊富。ソース香る惣菜系たい焼きが好きな人に刺さるラインナップ。
+          名物のお好み焼き鯛焼きは老若男女に人気！もっちり厚めな生地にお腹も心も温まる
         </p>
       </article>
 
@@ -256,11 +372,11 @@
         <h2>横浜くりこ庵</h2>
         <div class="meta">
           <span>皮：ふっくら厚めで香ばしい</span>
-          <span>餡：自家炊き粒あん／限定餡が豊富</span>
+          <span>餡：小倉あん／くりこあん／プレミアムクリーム</span>
           <span>価格帯：190〜240円</span>
         </div>
         <p class="desc">
-          あんこに加え、紫いもや栗など季節の餡が次々登場。フレーバーの多さが魅力で、食べ比べが楽しいチェーン。
+          あんこに加え、紫いもやアップルチーズなど季節の餡が次々登場。フレーバーの多さが魅力で、食べ比べが楽しいチェーン。
         </p>
       </article>
     </section>
@@ -309,6 +425,38 @@
           </tr>
         </tbody>
       </table>
+    </section>
+
+    <section class="map">
+      <div>
+        <h3>主要店舗エリアをざっくりマッピング</h3>
+        <p>首都圏・関西・東海を中心に広がる三社の出店状況を主要都市で可視化しました。</p>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="dot dot-a"></span>鳴門鯛焼き本舗</div>
+        <div class="legend-item"><span class="dot dot-b"></span>おめで鯛焼き本舗</div>
+        <div class="legend-item"><span class="dot dot-c"></span>横浜くりこ庵</div>
+      </div>
+      <div class="map-plot" aria-label="日本地図上の店舗分布">
+        <div class="pin pin-a" style="top: 22%; left: 28%;"><span>札幌</span></div>
+        <div class="pin pin-a" style="top: 34%; left: 55%;"><span>仙台</span></div>
+        <div class="pin pin-a" style="top: 45%; left: 68%;"><span>東京</span></div>
+        <div class="pin pin-a" style="top: 56%; left: 58%;"><span>名古屋</span></div>
+        <div class="pin pin-a" style="top: 66%; left: 52%;"><span>大阪</span></div>
+        <div class="pin pin-a" style="top: 78%; left: 40%;"><span>福岡</span></div>
+
+        <div class="pin pin-b" style="top: 48%; left: 64%;"><span>東京</span></div>
+        <div class="pin pin-b" style="top: 59%; left: 60%;"><span>名古屋</span></div>
+        <div class="pin pin-b" style="top: 70%; left: 55%;"><span>大阪</span></div>
+        <div class="pin pin-b" style="top: 75%; left: 47%;"><span>広島</span></div>
+        <div class="pin pin-b" style="top: 82%; left: 42%;"><span>福岡</span></div>
+
+        <div class="pin pin-c" style="top: 24%; left: 34%;"><span>札幌</span></div>
+        <div class="pin pin-c" style="top: 46%; left: 71%;"><span>横浜</span></div>
+        <div class="pin pin-c" style="top: 58%; left: 62%;"><span>名古屋</span></div>
+        <div class="pin pin-c" style="top: 70%; left: 57%;"><span>大阪</span></div>
+        <div class="pin pin-c" style="top: 82%; left: 44%;"><span>福岡</span></div>
+      </div>
     </section>
 
     <div class="cta">

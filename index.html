@@ -31,6 +31,21 @@
       padding: 0 1rem 4rem;
       position: relative;
       line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(253, 248, 241, 0.95), rgba(250, 243, 233, 0.9)),
+        url("鯛焼き.jpeg") center center / cover no-repeat,
+        url("鯛焼き.jpeg") 15% 25% / 70% auto no-repeat,
+        url("鯛焼き.jpeg") 85% 75% / 70% auto no-repeat;
+      filter: saturate(0.94);
+      pointer-events: none;
     }
 
     .wrap {
@@ -211,7 +226,7 @@
       box-shadow: 0 14px 28px rgba(44, 38, 24, 0.12);
       padding: 1.5rem;
       display: grid;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .map h3 {
@@ -259,63 +274,38 @@
       background: var(--accent-3);
     }
 
-    .map-plot {
-      position: relative;
-      height: 460px;
-      border-radius: 16px;
-      background: #fefbf6 url("日本地図.png") center center / contain no-repeat;
-      overflow: hidden;
+    .map-lists {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .map-list {
+      background: rgba(255, 255, 255, 0.6);
       border: 1px solid var(--stroke);
-      box-shadow: var(--shadow);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 10px 20px rgba(44, 38, 24, 0.08);
     }
 
-    .map-plot::after {
-      content: "";
-      position: absolute;
-      inset: 8%;
-      border: 1px dashed rgba(44, 34, 24, 0.14);
-      border-radius: 14px;
-      pointer-events: none;
+    .map-list h4 {
+      margin: 0 0 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
     }
 
-    .pin {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #2c2416;
-      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95);
-      white-space: nowrap;
+    .map-list ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: #3c3126;
+      line-height: 1.6;
     }
 
-    .pin::before {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: -6px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.9);
-    }
-
-    .pin-a::before {
-      background: var(--accent);
-    }
-    .pin-b::before {
-      background: var(--accent-2);
-    }
-    .pin-c::before {
-      background: var(--accent-3);
-    }
-
-    .pin span {
-      display: inline-block;
-      margin-left: 0.6rem;
-      padding: 0.15rem 0.5rem;
-      background: rgba(255, 252, 247, 0.92);
-      border-radius: 10px;
-      border: 1px solid rgba(44, 34, 24, 0.08);
+    .map-list li + li {
+      margin-top: 0.25rem;
     }
 
     .button {
@@ -446,33 +436,46 @@
 
     <section class="map">
       <div>
-        <h3>主要店舗エリアをざっくりマッピング</h3>
-        <p>首都圏・関西・東海を中心に広がる三社の出店状況を、日本地図画像上に主要都市でプロットしました（概略図）。</p>
+        <h3>主要店舗エリア（抜粋）</h3>
+        <p>首都圏・関西・東海を中心に、よく見かける店舗をざっくりピックアップしました。最新情報は各公式サイトでご確認ください。</p>
       </div>
       <div class="legend">
         <div class="legend-item"><span class="dot dot-a"></span>鳴門鯛焼き本舗</div>
         <div class="legend-item"><span class="dot dot-b"></span>おめで鯛焼き本舗</div>
         <div class="legend-item"><span class="dot dot-c"></span>横浜くりこ庵</div>
       </div>
-      <div class="map-plot" aria-label="日本地図上の店舗分布">
-        <div class="pin pin-a" style="top: 20%; left: 60%;"><span>札幌</span></div>
-        <div class="pin pin-a" style="top: 33%; left: 66%;"><span>仙台</span></div>
-        <div class="pin pin-a" style="top: 52%; left: 70%;"><span>東京</span></div>
-        <div class="pin pin-a" style="top: 60%; left: 63%;"><span>名古屋</span></div>
-        <div class="pin pin-a" style="top: 69%; left: 57%;"><span>大阪</span></div>
-        <div class="pin pin-a" style="top: 80%; left: 46%;"><span>福岡</span></div>
-
-        <div class="pin pin-b" style="top: 52%; left: 68%;"><span>東京</span></div>
-        <div class="pin pin-b" style="top: 60%; left: 60%;"><span>名古屋</span></div>
-        <div class="pin pin-b" style="top: 70%; left: 56%;"><span>大阪</span></div>
-        <div class="pin pin-b" style="top: 75%; left: 50%;"><span>広島</span></div>
-        <div class="pin pin-b" style="top: 82%; left: 45%;"><span>福岡</span></div>
-
-        <div class="pin pin-c" style="top: 22%; left: 57%;"><span>札幌</span></div>
-        <div class="pin pin-c" style="top: 53%; left: 72%;"><span>横浜</span></div>
-        <div class="pin pin-c" style="top: 61%; left: 62%;"><span>名古屋</span></div>
-        <div class="pin pin-c" style="top: 70%; left: 58%;"><span>大阪</span></div>
-        <div class="pin pin-c" style="top: 82%; left: 47%;"><span>福岡</span></div>
+      <div class="map-lists">
+        <div class="map-list">
+          <h4><span class="dot dot-a"></span>鳴門鯛焼き本舗</h4>
+          <ul>
+            <li>札幌：狸小路</li>
+            <li>仙台：クリスロード</li>
+            <li>東京：浅草・新宿・渋谷</li>
+            <li>名古屋：名駅・大須</li>
+            <li>大阪：なんば・梅田</li>
+            <li>福岡：天神・博多駅周辺</li>
+          </ul>
+        </div>
+        <div class="map-list">
+          <h4><span class="dot dot-b"></span>おめで鯛焼き本舗</h4>
+          <ul>
+            <li>東京：浅草・上野</li>
+            <li>名古屋：栄・大須</li>
+            <li>大阪：心斎橋・天王寺</li>
+            <li>広島：紙屋町</li>
+            <li>福岡：博多駅・天神</li>
+          </ul>
+        </div>
+        <div class="map-list">
+          <h4><span class="dot dot-c"></span>横浜くりこ庵</h4>
+          <ul>
+            <li>札幌：札幌エスタ</li>
+            <li>横浜：みなとみらい・横浜駅</li>
+            <li>名古屋：名駅・栄</li>
+            <li>大阪：梅田</li>
+            <li>福岡：博多駅周辺</li>
+          </ul>
+        </div>
       </div>
     </section>
 

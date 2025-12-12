@@ -4,8 +4,8 @@
   swimArea.setAttribute("aria-hidden", "true");
   document.body.appendChild(swimArea);
 
-  const maxFish = 4;
-  const spawnInterval = 4200;
+  const maxFish = 8;
+  const spawnInterval = 2800;
   const imgSrc = "鯛焼きフリー.png";
 
   const rand = (min, max) => Math.random() * (max - min) + min;

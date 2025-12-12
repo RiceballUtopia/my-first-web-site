@@ -373,7 +373,6 @@ tr:nth-child(even) td {
 
 .taiyaki {
   --swim-scale: 0.9;
-  /* flip so tail enters first */
   --flip: -1;
   position: absolute;
   width: clamp(120px, 16vw, 200px);
@@ -386,7 +385,6 @@ tr:nth-child(even) td {
 }
 
 .taiyaki.reverse {
-  /* left向きでは画像を元に戻す */
   --flip: 1;
   animation-name: swim-left;
 }

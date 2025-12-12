@@ -6,7 +6,7 @@
 
   const maxFish = 4;
   const spawnInterval = 4200;
-  const imgSrc = "鯛焼き1匹.jpg";
+  const imgSrc = "鯛焼きフリー.png";
 
   const rand = (min, max) => Math.random() * (max - min) + min;
 

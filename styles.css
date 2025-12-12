@@ -410,7 +410,7 @@ section {
   width: 100%;
   display: block;
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 118, 110, 0.2));
+  background: url("空.png") center center / cover no-repeat;
 }
 
 .game-help {

@@ -18,6 +18,96 @@
       </p>
     </header>
 
+    <section class="quiz" id="diagnosis">
+      <div class="quiz-head">
+        <div class="eyebrow">たい焼きタイプ診断</div>
+        <h2>◯ / ✕ で答えるだけ。あなたは何鯛？</h2>
+        <p class="quiz-lead">5問にサクッと答えて、自分にしっくり来るたい焼きタイプとおすすめの店をチェックしましょう。</p>
+      </div>
+
+      <form class="quiz-form" id="taiyaki-quiz">
+        <ol class="quiz-list">
+          <li class="quiz-item">
+            <div class="quiz-question"><span class="q-number">Q1</span> 新しいものは試したい方だ</div>
+            <div class="pill-group">
+              <label class="pill-option">
+                <input type="radio" name="q1" value="yes" />
+                <span>◯ はい</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="q1" value="no" />
+                <span>✕ いいえ</span>
+              </label>
+            </div>
+          </li>
+          <li class="quiz-item">
+            <div class="quiz-question"><span class="q-number">Q2</span> 甘いものは別腹だ</div>
+            <div class="pill-group">
+              <label class="pill-option">
+                <input type="radio" name="q2" value="yes" />
+                <span>◯ はい</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="q2" value="no" />
+                <span>✕ いいえ</span>
+              </label>
+            </div>
+          </li>
+          <li class="quiz-item">
+            <div class="quiz-question"><span class="q-number">Q3</span> 待つのは苦にならない方だ</div>
+            <div class="pill-group">
+              <label class="pill-option">
+                <input type="radio" name="q3" value="yes" />
+                <span>◯ はい</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="q3" value="no" />
+                <span>✕ いいえ</span>
+              </label>
+            </div>
+          </li>
+          <li class="quiz-item">
+            <div class="quiz-question"><span class="q-number">Q4</span> 定番より季節限定に惹かれる</div>
+            <div class="pill-group">
+              <label class="pill-option">
+                <input type="radio" name="q4" value="yes" />
+                <span>◯ はい</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="q4" value="no" />
+                <span>✕ いいえ</span>
+              </label>
+            </div>
+          </li>
+          <li class="quiz-item">
+            <div class="quiz-question"><span class="q-number">Q5</span> 人におすそ分けするのが好きだ</div>
+            <div class="pill-group">
+              <label class="pill-option">
+                <input type="radio" name="q5" value="yes" />
+                <span>◯ はい</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="q5" value="no" />
+                <span>✕ いいえ</span>
+              </label>
+            </div>
+          </li>
+        </ol>
+        <div class="quiz-actions">
+          <button type="submit" class="button">診断する</button>
+          <button type="button" class="ghost-button" id="quiz-reset">リセット</button>
+          <p class="quiz-helper" id="quiz-helper" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="quiz-result" id="quiz-result" aria-live="polite" role="status">
+        <p class="result-label">結果</p>
+        <div class="result-title">診断を始めましょう</div>
+        <p class="result-desc">◯ / ✕ を選んで「診断する」を押すと、ぴったりなたい焼きタイプとお店のヒントが表示されます。</p>
+        <div class="result-store">おすすめ店：まだ未診断です</div>
+      </div>
+    </section>
+
     <section class="grid">
       <article class="card">
         <div class="badge">定番を押さえるなら</div>

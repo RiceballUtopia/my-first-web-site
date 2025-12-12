@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
     player: "鯛焼きフリー.png",
     cream: "シュークリーム.png",
     shortcake: "ショートケーキ.png",
-    ice: "アイスクリーム.png",
+    ice: "アイスクリーム２.png",
   };
 
   const imgCache = new Map();

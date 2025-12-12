@@ -248,6 +248,35 @@
       </div>
     </section>
 
+    <section class="game" id="game">
+      <div class="game-head">
+        <div class="eyebrow">たい焼きシューティング</div>
+        <h3>たい焼きフリーと、甘い敵たちの戦い</h3>
+        <p class="quiz-lead">
+          主人公は「たい焼きフリー.png」。スペースキー or 画面タップで、あんこ色の弾を発射。シュークリーム・ショートケーキ・アイスクリームを迎撃しよう！
+        </p>
+      </div>
+      <div class="game-panel">
+        <div class="game-stats">
+          <span>スコア：<strong id="game-score">0</strong></span>
+          <span>ライフ：<strong id="game-lives">3</strong></span>
+          <span>Wave：<strong id="game-wave">1</strong></span>
+        </div>
+        <div class="game-actions">
+          <button type="button" class="button" id="game-start">スタート / 一時停止</button>
+          <button type="button" class="ghost-button" id="game-reset">リセット</button>
+        </div>
+      </div>
+      <div class="game-stage">
+        <canvas id="taiyaki-game" width="860" height="520" aria-label="たい焼きシューティングゲーム">
+          お使いの環境ではキャンバスが表示できません。
+        </canvas>
+      </div>
+      <p class="game-help">
+        操作：← → または A / D で移動、スペース / クリック / タップで射撃。敵が画面下へ抜けるとライフが減ります。
+      </p>
+    </section>
+
   </div>
 </body>
 </html>

@@ -360,6 +360,64 @@ section {
   }
 }
 
+.game {
+  margin-top: 2.5rem;
+  background: rgba(255, 252, 247, 0.92);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(44, 38, 24, 0.12);
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.game-head h3 {
+  margin: 0.35rem 0 0.25rem;
+  font-size: 1.3rem;
+}
+
+.game-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.game-stats {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  font-weight: 700;
+  color: #2c2218;
+}
+
+.game-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.game-stage {
+  background: radial-gradient(circle at 50% 10%, rgba(185, 28, 28, 0.08), transparent 45%), rgba(15, 23, 42, 0.9);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.5rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+#taiyaki-game {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 118, 110, 0.2));
+}
+
+.game-help {
+  margin: 0;
+  color: #3c3126;
+}
+
 .grid {
   display: grid;
   gap: 1.5rem;

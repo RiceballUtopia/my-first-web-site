@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cream: "シュークリーム.png",
     shortcake: "ショートケーキ.png",
     ice: "アイスクリーム２.png",
+    bg: "空.png",
   };
 
   const imgCache = new Map();
@@ -255,8 +256,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function clearCanvas() {
-    ctx.fillStyle = "rgba(7, 10, 20, 0.9)";
-    ctx.fillRect(0, 0, width, height);
+    const bg = imgCache.get("bg");
+    if (bg?.complete && bg.naturalWidth > 0) {
+      ctx.drawImage(bg, 0, 0, width, height);
+      ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
+      ctx.fillRect(0, 0, width, height);
+    } else {
+      ctx.fillStyle = "rgba(7, 10, 20, 0.9)";
+      ctx.fillRect(0, 0, width, height);
+    }
   }
 
   function drawStartMessage() {

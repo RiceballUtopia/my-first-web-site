@@ -55,6 +55,8 @@ body::after {
 .wrap {
   max-width: 1140px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 header {
@@ -366,7 +368,7 @@ tr:nth-child(even) td {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 3;
+  z-index: 0;
 }
 
 .taiyaki {

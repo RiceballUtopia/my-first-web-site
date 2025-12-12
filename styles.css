@@ -373,10 +373,11 @@ tr:nth-child(even) td {
 
 .taiyaki {
   --swim-scale: 0.9;
+  --flip: 1;
   position: absolute;
   width: clamp(120px, 16vw, 200px);
   object-fit: contain;
-  transform: translate3d(-30vw, 0, 0) scale(var(--swim-scale));
+  transform: translate3d(-30vw, 0, 0) scaleX(var(--flip)) scale(var(--swim-scale));
   animation: swim-right var(--swim-duration, 18s) linear var(--swim-delay, 0s) forwards;
   filter: brightness(1.05) saturate(1.05) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.18));
   mix-blend-mode: multiply;
@@ -384,30 +385,31 @@ tr:nth-child(even) td {
 }
 
 .taiyaki.reverse {
+  --flip: -1;
   animation-name: swim-left;
 }
 
 @keyframes swim-right {
   0% {
-    transform: translate3d(-30vw, 0, 0) scale(var(--swim-scale));
+    transform: translate3d(-30vw, 0, 0) scaleX(var(--flip)) scale(var(--swim-scale));
   }
   50% {
-    transform: translate3d(45vw, var(--drift, -8px), 0) scale(var(--swim-scale));
+    transform: translate3d(45vw, var(--drift, -8px), 0) scaleX(var(--flip)) scale(var(--swim-scale));
   }
   100% {
-    transform: translate3d(120vw, 0, 0) scale(var(--swim-scale));
+    transform: translate3d(120vw, 0, 0) scaleX(var(--flip)) scale(var(--swim-scale));
   }
 }
 
 @keyframes swim-left {
   0% {
-    transform: translate3d(120vw, 0, 0) scale(var(--swim-scale));
+    transform: translate3d(120vw, 0, 0) scaleX(var(--flip)) scale(var(--swim-scale));
   }
   50% {
-    transform: translate3d(45vw, var(--drift, 8px), 0) scale(var(--swim-scale));
+    transform: translate3d(45vw, var(--drift, 8px), 0) scaleX(var(--flip)) scale(var(--swim-scale));
   }
   100% {
-    transform: translate3d(-30vw, 0, 0) scale(var(--swim-scale));
+    transform: translate3d(-30vw, 0, 0) scaleX(var(--flip)) scale(var(--swim-scale));
   }
 }
 

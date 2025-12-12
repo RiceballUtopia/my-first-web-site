@@ -320,10 +320,6 @@ section {
   box-shadow: 0 12px 24px rgba(44, 38, 24, 0.1);
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.4rem 1rem;
-  align-items: center;
 }
 
 .result-label {
@@ -345,21 +341,6 @@ section {
   margin: 0.2rem 0;
   color: #3c3126;
   line-height: 1.6;
-}
-
-.result-visual {
-  grid-row: 1 / span 4;
-  grid-column: 2;
-  justify-self: end;
-  width: clamp(120px, 22vw, 180px);
-  background: radial-gradient(circle at 50% 50%, rgba(185, 28, 28, 0.12), transparent 70%);
-  border-radius: 16px;
-  padding: 0.3rem;
-}
-
-.result-visual img {
-  width: 100%;
-  display: block;
 }
 
 .quiz-result.result-on {
@@ -668,16 +649,6 @@ tr:nth-child(even) td {
 
   .quiz {
     padding: 1.25rem 1rem 1.35rem;
-  }
-
-  .quiz-result {
-    grid-template-columns: 1fr;
-  }
-
-  .result-visual {
-    grid-row: auto;
-    grid-column: 1;
-    justify-self: center;
   }
 
   .pill-option {
